@@ -8,11 +8,11 @@ if (importantWords) {
         do {
             anyWord = prompt(`Enter word #${countOfWords}`);
             for (let i = 0; i < anyWord.length;) {
-                if (!isNaN(anyWord.charAt[i])) {
+                if (!isNaN(anyWord.charAt(i))) {
                     anyWord = false
                 } else (i++);
             }
-        } while (!anyWord );
+        } while (!anyWord);
         console.log(`Word #${countOfWords}: ${anyWord}`);
         do {
             transformation = prompt(`Choose type of transformation for "${anyWord}": uppercase|lowercase|capitalize`, `uppercase`);
@@ -20,7 +20,7 @@ if (importantWords) {
                 anyWord = anyWord.toUpperCase();
                 console.log(`Transform type for word #${countOfWords}: ${transformation}`);
                 console.log(`Transformed word #${countOfWords}: ${anyWord}`);
-                fullSentence+= `${anyWord} `;
+                fullSentence += `${anyWord} `;
                 console.log(`Sentence: ${fullSentence}`);
                 break;
             }
@@ -28,7 +28,7 @@ if (importantWords) {
                 anyWord = anyWord.toLowerCase();
                 console.log(`Transform type for word #${countOfWords}: ${transformation}`);
                 console.log(`Transformed word #${countOfWords}: ${anyWord}`);
-                fullSentence+= `${anyWord} `;
+                fullSentence += `${anyWord} `;
                 console.log(`Sentence: ${fullSentence}`);
                 break;
             }
@@ -36,7 +36,7 @@ if (importantWords) {
                 anyWord = anyWord[0].toUpperCase() + anyWord.slice(1);
                 console.log(`Transform type for word #${countOfWords}: ${transformation}`);
                 console.log(`Transformed word #${countOfWords}: ${anyWord}`);
-                fullSentence+= `${anyWord} `;
+                fullSentence += `${anyWord} `;
                 console.log(`Sentence: ${fullSentence}`);
                 break;
             }
