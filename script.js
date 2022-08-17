@@ -7,12 +7,8 @@ if (importantWords) {
     for (; countOfWords <= 3; countOfWords++) {
         do {
             anyWord = prompt(`Enter word #${countOfWords}`);
-            for (let i = 0; i < anyWord.length;) {
-                if (!isNaN(anyWord.charAt(i))) {
-                    anyWord = false
-                } else (i++);
-            }
-        } while (!anyWord);
+            for (let i = 0; i < anyWord.length; i++) {}
+        } while (!anyWord || anyWord.match(/\d/));
         console.log(`Word #${countOfWords}: ${anyWord}`);
         do {
             transformation = prompt(`Choose type of transformation for "${anyWord}": uppercase|lowercase|capitalize`, `uppercase`);
