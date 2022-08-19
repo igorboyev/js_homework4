@@ -7,38 +7,30 @@ if (importantWords) {
     for (; countOfWords <= 3; countOfWords++) {
         do {
             anyWord = prompt(`Enter word #${countOfWords}`);
-            for (let i = 0; i < anyWord.length; i++) {}
-        } while (!anyWord || anyWord.match(/\d/));
+            for (let i = 0; i < anyWord.length; i++) {
+            }
+        } while (!anyWord || anyWord.match(/\d/))
         console.log(`Word #${countOfWords}: ${anyWord}`);
         do {
             transformation = prompt(`Choose type of transformation for "${anyWord}": uppercase|lowercase|capitalize`, `uppercase`);
-            if (transformation === `uppercase`) {
-                anyWord = anyWord.toUpperCase();
-                console.log(`Transform type for word #${countOfWords}: ${transformation}`);
-                console.log(`Transformed word #${countOfWords}: ${anyWord}`);
-                fullSentence += `${anyWord} `;
-                console.log(`Sentence: ${fullSentence}`);
-                break;
-            }
-            if (transformation === `lowercase`) {
-                anyWord = anyWord.toLowerCase();
-                console.log(`Transform type for word #${countOfWords}: ${transformation}`);
-                console.log(`Transformed word #${countOfWords}: ${anyWord}`);
-                fullSentence += `${anyWord} `;
-                console.log(`Sentence: ${fullSentence}`);
-                break;
-            }
-            if (transformation === `capitalize`) {
-                anyWord = anyWord[0].toUpperCase() + anyWord.slice(1);
-                console.log(`Transform type for word #${countOfWords}: ${transformation}`);
-                console.log(`Transformed word #${countOfWords}: ${anyWord}`);
-                fullSentence += `${anyWord} `;
-                console.log(`Sentence: ${fullSentence}`);
-                break;
-            }
+            if (transformation) transformation = transformation.replaceAll(` `, ``).toLowerCase();
         } while (!transformation || (transformation !== `uppercase` && transformation !== `lowercase` && transformation !== `capitalize`))
+
+        switch (transformation) {
+            case `uppercase`:
+                anyWord = anyWord.toUpperCase();
+                break;
+            case `lowercase`:
+                anyWord = anyWord.toLowerCase();
+                break;
+            case `capitalize`:
+                anyWord = anyWord[0].toUpperCase() + anyWord.slice(1).toLowerCase();
+                break;
+        }
+
+        console.log(`Transform type for word #${countOfWords}: ${transformation}`);
+        console.log(`Transformed word #${countOfWords}: ${anyWord}`);
+        fullSentence += `${anyWord} `;
+        console.log(`Sentence: ${fullSentence}!`);
     }
-    fullSentence = `${fullSentence.trim()}!`;
-    console.log(`*****`);
-    console.log(fullSentence);
 }
